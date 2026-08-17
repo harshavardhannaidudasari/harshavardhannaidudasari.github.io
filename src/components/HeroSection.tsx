@@ -70,7 +70,7 @@ export const HeroSection: React.FC = () => {
           muted
           loop
           playsInline
-          className="h-screen w-auto max-w-none object-contain origin-right scale-95 md:scale-[0.98] lg:scale-100 translate-x-[26%] sm:translate-x-[23%] lg:translate-x-[20%]"
+          className="h-screen w-auto max-w-none object-contain origin-right scale-95 md:scale-[0.98] lg:scale-100 translate-x-[40%] sm:translate-x-[30%] md:translate-x-[24%] lg:translate-x-[20%]"
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
@@ -88,7 +88,10 @@ export const HeroSection: React.FC = () => {
         ))}
 
         {/* Seamless Soft Left Edge Blend */}
-        <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-black via-black/85 to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-[85%] sm:w-2/3 md:w-1/2 bg-gradient-to-r from-black via-black/85 to-transparent pointer-events-none" />
+
+        {/* Extra Bottom Scrim for Mobile Text Legibility */}
+        <div className="absolute inset-x-0 bottom-0 h-1/2 md:hidden bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none" />
 
         {/* ================= 3. ANIMATED WATERMARK EMBLEM ================= */}
         <div className="absolute bottom-6 right-6 lg:bottom-10 lg:right-12 pointer-events-none flex items-center justify-center z-10">
