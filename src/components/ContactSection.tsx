@@ -8,6 +8,9 @@ export const ContactSection: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent(`Portfolio inquiry from ${formData.name}`);
+    const body = encodeURIComponent(`${formData.message}\n\n— ${formData.name} (${formData.email})`);
+    window.location.href = `mailto:hvndasari@gmail.com?subject=${subject}&body=${body}`;
     setSent(true);
   };
 
@@ -63,11 +66,50 @@ export const ContactSection: React.FC = () => {
               </motion.div>
 
               <p
-                className="text-xs sm:text-[13px] font-light text-[#A8988B] leading-relaxed max-w-md"
+                className="text-xs sm:text-[13px] font-light text-[#A8988B] leading-relaxed max-w-md mb-8"
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
-                Have an ambitious system to architect, an engineering opportunity, or a collaborative inquiry? Send a direct dispatch below.
+                Open to Automation Lead / SDET roles and QA leadership opportunities. Send a direct dispatch below, or reach out directly.
               </p>
+
+              <div className="space-y-3">
+                <a
+                  href="mailto:hvndasari@gmail.com"
+                  className="flex items-center space-x-3 text-[11px] tracking-[0.15em] uppercase text-[#C4B5A5] hover:text-[#F7E7C4] transition-colors"
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}
+                >
+                  <span className="text-[#D4AF37]">✉</span>
+                  <span>hvndasari@gmail.com</span>
+                </a>
+                <a
+                  href="tel:+919505093666"
+                  className="flex items-center space-x-3 text-[11px] tracking-[0.15em] uppercase text-[#C4B5A5] hover:text-[#F7E7C4] transition-colors"
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}
+                >
+                  <span className="text-[#D4AF37]">☎</span>
+                  <span>+91 95050 93666</span>
+                </a>
+                <a
+                  href="https://github.com/harshavardhannaidudasari"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-3 text-[11px] tracking-[0.15em] uppercase text-[#C4B5A5] hover:text-[#F7E7C4] transition-colors"
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}
+                >
+                  <span className="text-[#D4AF37]">↗</span>
+                  <span>github.com/harshavardhannaidudasari</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/harsha-vardhan-naidu-d-768b581a6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-3 text-[11px] tracking-[0.15em] uppercase text-[#C4B5A5] hover:text-[#F7E7C4] transition-colors"
+                  style={{ fontFamily: "'Montserrat', sans-serif" }}
+                >
+                  <span className="text-[#D4AF37] font-bold">in</span>
+                  <span>linkedin.com/in/harsha-vardhan-naidu-d</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -167,10 +209,10 @@ export const ContactSection: React.FC = () => {
         {/* System Footer Line */}
         <div className="pt-16 mt-16 border-t border-[#8C6D4F]/15 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-4">
           <span className="text-[10px] font-mono tracking-widest text-[#8C6D4F] uppercase">
-            PORTFOLIO // EDITION 2026
+            HARSHA VARDHAN NAIDU DASARI // PORTFOLIO
           </span>
           <span className="text-[10px] font-mono text-[#8C6D4F]">
-            © {new Date().getFullYear()} • ENGINEERED WITH PRECISION
+            © {new Date().getFullYear()} • QUALITY ENGINEERED WITH PRECISION
           </span>
         </div>
 

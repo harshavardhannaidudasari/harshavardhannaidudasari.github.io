@@ -3,6 +3,13 @@ import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import watermarkImg from '../assets/watermark.png';
 
+const emberParticles = [
+  { left: '8%', delay: 0, duration: 7 },
+  { left: '22%', delay: 1.4, duration: 8.5 },
+  { left: '15%', delay: 3, duration: 6.5 },
+  { left: '30%', delay: 2, duration: 9 },
+];
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -48,7 +55,7 @@ export const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-screen h-screen overflow-hidden bg-black text-[#E8DFD8] font-sans selection:bg-[#cbb59d] selection:text-black cursor-none">
+    <section className="relative w-screen min-h-screen overflow-x-hidden bg-black text-[#E8DFD8] font-sans selection:bg-[#cbb59d] selection:text-black cursor-none">
       {/* ================= 1. MINIMAL CUSTOM CURSOR ================= */}
       {cursorPos.x >= 0 && (
         <motion.div
@@ -71,10 +78,22 @@ export const HeroSection: React.FC = () => {
           muted
           loop
           playsInline
-          className="h-screen w-auto max-w-none object-contain origin-right scale-95 md:scale-[0.98] lg:scale-100"
+          className="h-screen w-auto max-w-none object-contain origin-right scale-95 md:scale-[0.98] lg:scale-100 translate-x-[26%] sm:translate-x-[23%] lg:translate-x-[20%]"
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
+
+        {/* Drifting Gold Embers */}
+        {emberParticles.map((p, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 0 }}
+            animate={{ opacity: [0, 1, 0], y: -260 }}
+            transition={{ duration: p.duration, repeat: Infinity, ease: 'easeOut', delay: p.delay }}
+            className="absolute bottom-[20%] w-1.5 h-1.5 bg-[#F3DBB3] rounded-full blur-[1px] shadow-[0_0_10px_#D4AF37]"
+            style={{ right: p.left }}
+          />
+        ))}
 
         {/* Seamless Soft Left Edge Blend */}
         <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-black via-black/85 to-transparent pointer-events-none" />
@@ -107,7 +126,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* ================= 4. CONTENT LAYER ================= */}
-      <div className="relative z-10 flex flex-col justify-between h-full w-full px-6 sm:px-12 lg:px-16 pt-6 pb-8 pointer-events-none">
+      <div className="relative z-10 flex flex-col justify-between min-h-screen w-full px-6 sm:px-12 lg:px-16 pt-6 pb-10 pointer-events-none">
         
         {/* Navigation Bar */}
         <header className="relative flex items-center justify-between w-full pointer-events-auto">
@@ -118,7 +137,7 @@ export const HeroSection: React.FC = () => {
             className="text-xs sm:text-sm font-semibold tracking-[0.35em] uppercase text-[#EAD8C7] hover:opacity-75 transition-opacity"
             style={{ fontFamily: "'Montserrat', sans-serif" }}
           >
-            LOHITHA.
+            HARSHA.
           </a>
 
           {/* Navigation Links */}
@@ -140,19 +159,34 @@ export const HeroSection: React.FC = () => {
             ))}
           </nav>
 
-          {/* Right Action */}
-          <a
-            href="#contact"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            className="group flex items-center space-x-2 text-[11px] tracking-[0.24em] font-light uppercase py-2 px-4 border border-[#8C6D4F]/50 hover:border-[#D4AF37] text-[#EAD8C7] transition-all duration-300 backdrop-blur-sm ml-auto md:ml-0"
-            style={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            <span>LET&apos;S TALK</span>
-            <span className="transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-xs">
-              ↗
-            </span>
-          </a>
+          {/* Right Actions */}
+          <div className="flex items-center space-x-3 ml-auto md:ml-0">
+            <a
+              href="https://www.linkedin.com/in/harsha-vardhan-naidu-d-768b581a6"
+              target="_blank"
+              rel="noopener noreferrer"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              aria-label="LinkedIn Profile"
+              className="flex items-center justify-center w-9 h-9 border border-[#8C6D4F]/50 hover:border-[#D4AF37] text-[#EAD8C7] hover:text-[#D4AF37] transition-all duration-300 backdrop-blur-sm text-[11px] font-bold"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              in
+            </a>
+
+            <a
+              href="#contact"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              className="group flex items-center space-x-2 text-[11px] tracking-[0.24em] font-light uppercase py-2 px-4 border border-[#8C6D4F]/50 hover:border-[#D4AF37] text-[#EAD8C7] transition-all duration-300 backdrop-blur-sm"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              <span>LET&apos;S TALK</span>
+              <span className="transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-xs">
+                ↗
+              </span>
+            </a>
+          </div>
         </header>
 
         {/* Main Hero Row */}
@@ -171,19 +205,19 @@ export const HeroSection: React.FC = () => {
                 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7.2rem] xl:text-[7.8rem] tracking-tight uppercase leading-[0.83]"
                 style={{ fontFamily: "'Bebas Neue', sans-serif" }}
               >
-                {/* Line 1: I BUILD */}
+                {/* Line 1: I ENGINEER */}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-b from-[#FFFFFF] via-[#D5CBC0] to-[#605448] drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]">
-                  I BUILD
+                  I ENGINEER
                 </span>
 
-                {/* Line 2: DIGITAL */}
+                {/* Line 2: QUALITY */}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-b from-[#F7E7C4] via-[#C99E5D] to-[#543B1A] drop-shadow-[0_8px_25px_rgba(201,158,93,0.35)]">
-                  DIGITAL
+                  QUALITY
                 </span>
 
-                {/* Line 3: EXPERIENCES */}
+                {/* Line 3: AT SCALE */}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-b from-[#DFBE8A] via-[#9B7640] to-[#342410] drop-shadow-[0_10px_30px_rgba(155,118,64,0.4)]">
-                  EXPERIENCES
+                  AT SCALE
                 </span>
               </h1>
             </motion.div>
@@ -194,7 +228,7 @@ export const HeroSection: React.FC = () => {
                 className="text-[10px] sm:text-[11px] md:text-xs font-normal tracking-[0.28em] uppercase text-[#C4B29E]"
                 style={{ fontFamily: "'Montserrat', sans-serif" }}
               >
-                FULL STACK DEVELOPER <span className="text-[#8C6D4F] mx-1">•</span> UI/UX DESIGNER <span className="text-[#8C6D4F] mx-1">•</span> DATA SCIENCE
+                AUTOMATION TEST LEAD <span className="text-[#8C6D4F] mx-1">•</span> SDET <span className="text-[#8C6D4F] mx-1">•</span> QA ENGINEERING
               </p>
             </motion.div>
 
@@ -205,9 +239,9 @@ export const HeroSection: React.FC = () => {
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
               <p>
-                I turn bold ideas into seamless digital experiences.
+                10+ years architecting test automation frameworks that catch defects before customers do.
                 <br />
-                Where frontend meets powerful backend, and code transforms vision into impact.
+                Where Selenium meets CI/CD, and quality becomes a release-time guarantee, not an afterthought.
               </p>
             </motion.div>
 
@@ -267,8 +301,8 @@ export const HeroSection: React.FC = () => {
               className="text-[9.5px] font-medium tracking-[0.24em] uppercase text-[#E0D3C5] space-y-1 mb-3"
               style={{ fontFamily: "'Montserrat', sans-serif" }}
             >
-              <p>CODE IS MY CRAFT.</p>
-              <p>IMPACT IS MY GOAL.</p>
+              <p>QUALITY IS MY CRAFT.</p>
+              <p>RELIABILITY IS MY GOAL.</p>
             </div>
 
             {/* 3. Gold Accent Line */}
@@ -282,7 +316,7 @@ export const HeroSection: React.FC = () => {
                 letterSpacing: '0.04em',
               }}
             >
-              Lohitha
+              Harsha
             </div>
           </motion.div>
         </div>

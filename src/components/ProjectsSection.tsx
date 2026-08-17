@@ -8,6 +8,7 @@ interface Project {
   category: string;
   description: string;
   githubUrl: string;
+  liveUrls?: { label: string; url: string }[];
   tech: string[];
   metrics: { label: string; value: string }[];
 }
@@ -15,97 +16,78 @@ interface Project {
 const projects: Project[] = [
   {
     number: '01',
-    title: 'PolicyGuard AI',
-    category: 'AI / LEGAL-TECH PLATFORM',
+    title: 'Hybrid Test Automation Suite',
+    category: 'SDET TOOLKIT / 50+ REPOS',
     description:
-      'AI-powered platform engineered for automated privacy policy analysis and legal contract auditing across web, desktop, and mobile. Implements NLP extraction, real-time risk alert detection, and generative risk score intelligence.',
-    githubUrl: 'https://github.com/lohithadamisetti123',
+      'A library of 50+ modular hybrid test automation frameworks spanning API validation, database checks, performance testing, security scanning, self-healing UI locators, and CI/CD pipeline orchestration — each reimplemented natively across seven language stacks.',
+    githubUrl: 'https://github.com/harshavardhannaidudasari?tab=repositories&q=hybrid-',
     tech: [
-      'React.js',
-      'React Native',
-      'Electron.js',
-      'Node.js',
-      'Express.js',
-      'MongoDB Atlas',
-      'OpenAI API',
-      'Prompt Eng',
-      'NLP',
-      'Docker',
-      'JWT',
+      'Java', 'Python', 'TypeScript', 'JavaScript', 'C#', '.NET', 'Ruby',
+      'Selenium', 'REST Assured', 'JUnit',
     ],
     metrics: [
-      { label: 'PLATFORMS', value: 'Web, Mobile, Desktop' },
-      { label: 'ENGINE', value: 'OpenAI NLP / GPT' },
-      { label: 'PIPELINE', value: 'Automated Scoring' },
+      { label: 'LANGUAGES', value: '7 Stacks' },
+      { label: 'COVERAGE', value: 'API · DB · Perf · Security' },
+      { label: 'CI/CD', value: 'Self-Healing Pipeline Runner' },
     ],
   },
   {
     number: '02',
-    title: 'Software Release Risk Heatmap',
-    category: 'MACHINE LEARNING / DEV PLATFORM',
+    title: 'OP AI — Orbit Pro',
+    category: 'AI OPS / QA COMMAND CENTER',
     description:
-      'Full-stack predictive release management platform utilizing Machine Learning. Implements a trained Random Forest classifier to categorize release stability from Low to Critical risk, rendered over a live interactive team heatmap.',
-    githubUrl: 'https://github.com/lohithadamisetti123',
-    tech: [
-      'React.js',
-      'TypeScript',
-      'Python',
-      'FastAPI',
-      'scikit-learn',
-      'PostgreSQL',
-      'Tailwind CSS',
-      'REST APIs',
-      'JWT',
+      'A blueprint and interactive demo for an AI-driven QA command center that walks a scripted Plan → Inspect → Generate → Review → Execute → Verify → Report reasoning loop, with live agent activity, evidence cards, and a final test report.',
+    githubUrl: 'https://github.com/harshavardhannaidudasari/orbit-pro',
+    liveUrls: [
+      { label: 'VIEW BLUEPRINT', url: 'https://harshavardhannaidudasari.github.io/orbit-pro/' },
+      { label: 'TRY LIVE DEMO', url: 'https://harshavardhannaidudasari.github.io/orbit-pro-app/' },
     ],
+    tech: ['React', 'TypeScript', 'Vite', 'GitHub Pages'],
     metrics: [
-      { label: 'MODEL', value: 'Random Forest' },
-      { label: 'ACCURACY', value: 'High Precision' },
-      { label: 'DASHBOARD', value: 'Live Risk Heatmap' },
+      { label: 'STAGES', value: '7-Step Reasoning Loop' },
+      { label: 'HOSTED', value: 'GitHub Pages' },
     ],
   },
   {
     number: '03',
-    title: 'Multi-Tenant SaaS Platform',
-    category: 'CLOUD / DISTRIBUTED SYSTEM',
+    title: 'Trove Marketplace',
+    category: 'FULL-STACK E-COMMERCE',
     description:
-      'Enterprise-grade multi-tenant platform built for unified management of teams, projects, and execution lifecycles. Architected with strict tenant data isolation, granular Role-Based Access Control (RBAC), and containerized deployments.',
-    githubUrl: 'https://github.com/lohithadamisetti123',
-    tech: [
-      'Node.js',
-      'Express.js',
-      'PostgreSQL',
-      'React',
-      'Docker',
-      'JWT',
-      'RBAC',
-      'REST APIs',
-    ],
+      'A full-stack marketplace platform with a FastAPI + PostgreSQL backend and a Vite/React frontend, covering the golden path end to end — browse, cart, checkout, and order history — containerized with Docker Compose.',
+    githubUrl: 'https://github.com/harshavardhannaidudasari/trove-marketplace',
+    tech: ['FastAPI', 'PostgreSQL', 'React', 'Vite', 'Docker Compose', 'Alembic'],
     metrics: [
-      { label: 'ARCHITECTURE', value: 'Multi-Tenant' },
-      { label: 'SECURITY', value: 'RBAC Isolation' },
-      { label: 'CONTAINERS', value: 'Docker Compose' },
+      { label: 'BACKEND', value: 'FastAPI + Postgres' },
+      { label: 'FRONTEND', value: 'Vite + React' },
+      { label: 'FLOW', value: 'Cart → Checkout → Orders' },
     ],
   },
   {
     number: '04',
-    title: 'Payment Gateway with Hosted Checkout',
-    category: 'FINTECH / PAYMENT SYSTEMS',
+    title: 'Mobile Automation Framework',
+    category: 'MOBILE TEST AUTOMATION',
     description:
-      'End-to-end hosted payment gateway infrastructure supporting seamless merchant order generation, multi-currency processing, and secure consumer checkout via UPI and Cards with webhook transaction verification.',
-    githubUrl: 'https://github.com/lohithadamisetti123',
-    tech: [
-      'Node.js',
-      'Spring Boot',
-      'PostgreSQL',
-      'React',
-      'Docker',
-      'REST APIs',
-      'UPI / Card Integrations',
-    ],
+      'A Java-based mobile test automation framework for native and hybrid apps, built to plug into the same CI/CD and reporting patterns used across the desktop and API automation suites.',
+    githubUrl: 'https://github.com/harshavardhannaidudasari/Mobile-Automation-',
+    tech: ['Java', 'Appium', 'TestNG', 'Mobile QA'],
     metrics: [
-      { label: 'PROTOCOLS', value: 'UPI & Cards' },
-      { label: 'BACKEND', value: 'Spring Boot + Node' },
-      { label: 'DATABASE', value: 'ACID PostgreSQL' },
+      { label: 'LANGUAGE', value: 'Java' },
+      { label: 'TARGET', value: 'Native + Hybrid Apps' },
+      { label: 'INTEGRATION', value: 'CI/CD Ready' },
+    ],
+  },
+  {
+    number: '05',
+    title: 'AI Chatbot',
+    category: 'AI / NLP EXPERIMENT',
+    description:
+      'A basic conversational AI chatbot built in Python, exploring prompt design and NLP-driven response handling outside the day-to-day QA toolchain.',
+    githubUrl: 'https://github.com/harshavardhannaidudasari/Ai-with-python-basic-chatbot',
+    tech: ['Python', 'NLP'],
+    metrics: [
+      { label: 'LANGUAGE', value: 'Python' },
+      { label: 'TYPE', value: 'Rule-Based Chatbot' },
+      { label: 'FOCUS', value: 'Prompt Design' },
     ],
   },
 ];
@@ -264,16 +246,32 @@ export const ProjectsSection: React.FC = () => {
                       ))}
                     </div>
 
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center space-x-3 px-6 py-3.5 border border-[#8C6D4F] bg-[#16120E] hover:border-[#D4AF37] hover:bg-[#D4AF37] text-[#EAD8C7] hover:text-black text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.1)]"
-                      style={{ fontFamily: "'Montserrat', sans-serif" }}
-                    >
-                      <span>VIEW ON GITHUB</span>
-                      <span className="text-xs">↗</span>
-                    </a>
+                    <div className="flex flex-col gap-3">
+                      {project.liveUrls?.map((live) => (
+                        <a
+                          key={live.label}
+                          href={live.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center space-x-3 px-6 py-3.5 border border-[#D4AF37] bg-[#D4AF37] hover:bg-transparent text-black hover:text-[#D4AF37] text-[11px] font-semibold tracking-[0.24em] uppercase transition-all duration-300 shadow-[0_0_25px_rgba(212,175,55,0.25)]"
+                          style={{ fontFamily: "'Montserrat', sans-serif" }}
+                        >
+                          <span>{live.label}</span>
+                          <span className="text-xs">↗</span>
+                        </a>
+                      ))}
+
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center space-x-3 px-6 py-3.5 border border-[#8C6D4F] bg-[#16120E] hover:border-[#D4AF37] hover:bg-[#D4AF37] text-[#EAD8C7] hover:text-black text-[11px] font-medium tracking-[0.24em] uppercase transition-all duration-300 shadow-[0_0_20px_rgba(212,175,55,0.1)]"
+                        style={{ fontFamily: "'Montserrat', sans-serif" }}
+                      >
+                        <span>VIEW ON GITHUB</span>
+                        <span className="text-xs">↗</span>
+                      </a>
+                    </div>
                   </div>
 
                 </div>
