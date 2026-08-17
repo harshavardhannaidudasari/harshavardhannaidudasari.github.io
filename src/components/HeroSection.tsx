@@ -70,6 +70,8 @@ export const HeroSection: React.FC = () => {
           muted
           loop
           playsInline
+          preload="auto"
+          poster="/videos/hero-poster.jpg"
           className="h-screen w-auto max-w-none object-contain origin-right scale-95 md:scale-[0.98] lg:scale-100 translate-x-[40%] sm:translate-x-[30%] md:translate-x-[24%] lg:translate-x-[20%]"
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
