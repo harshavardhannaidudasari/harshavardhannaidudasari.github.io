@@ -11,6 +11,12 @@
   padding-bottom: 50vh; /* creates the runway so all cards stack and lock at the top */
 }
 
+/* Touch devices skip the pinned stacking effect entirely (see ScrollStack.tsx),
+   so the scroll runway below is dead space and gets collapsed. */
+.scroll-stack-static .scroll-stack-inner {
+  padding-bottom: 2rem;
+}
+
 .scroll-stack-card {
   position: relative;
   width: 100%;

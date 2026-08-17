@@ -223,6 +223,24 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
     cardsRef.current = cards;
 
+    // Touch devices (phones, tablets) drive this section via native/momentum
+    // scrolling, which fights with Lenis's virtual-scroll math and leaves the
+    // stack frozen mid-transition. Skip the pin/scale effect there entirely
+    // and let the cards flow as a plain stacked list instead.
+    const isTouchDevice =
+      typeof window !== 'undefined' &&
+      ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+
+    if (isTouchDevice) {
+      scrollerRef.current?.classList.add('scroll-stack-static');
+      cards.forEach((card) => {
+        card.style.transform = '';
+        card.style.filter = '';
+        card.style.marginBottom = `${itemDistance}px`;
+      });
+      return;
+    }
+
     // Record static natural top positions before any transforms are applied
     initialTopsRef.current = cards.map((card) => {
       const rect = card.getBoundingClientRect();
